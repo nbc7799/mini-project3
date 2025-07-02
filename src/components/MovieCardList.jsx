@@ -1,9 +1,7 @@
 import { useState } from "react";
-import MovieList from "/src/data/movieListData.json";
 import MovieCard from "./MovieCard";
 
-export default function MovieCardList() {
-  const [movies] = useState(MovieList.results);
+export default function MovieCardList({ movies, imgURL }) {
   const baseUrl = "https://image.tmdb.org/t/p/w500";
 
   return (
@@ -15,6 +13,7 @@ export default function MovieCardList() {
             title={movie.title}
             poster_path={movie.poster_path}
             vote_average={movie.vote_average}
+            imgURL={imgURL}
             baseUrl={baseUrl}
             movie={movie}
           />
